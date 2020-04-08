@@ -1,0 +1,58 @@
+<h3 class="ml-5">Cadastro de Vendedor</h3>
+<hr style="background-color: steelblue;">
+<form class="ml-5 mr-5" action="">
+    <div class="row">
+        <div class="col-3 form-group required">
+            <input type="hidden" name="vendedor.codigo" id="codigo" value="1">
+            <label for="cpf">CPF</label>
+            <input 
+                class="texto form-control required" maxlength="20" 
+                name="vendedor.cpf" id="cpf" type="text">
+        </div>
+        <div class="col-2 form-group required">
+            <label for="rg">RG</label>
+            <input 
+                class="texto form-control required" maxlength="18" 
+                name="vendedor.rg" id="rg" type="text">
+        </div>
+        <div class="col-7 form-group required">
+            <label for="nome">Nome</label>
+            <input 
+                class="texto form-control required" maxlength="80" 
+                name="vendedor.nome" id="nome" type="text">
+        </div>
+        <div class="col-5 form-group required">
+            <label for="logradouro">Logradouro</label>
+            <input 
+                class="texto form-control" maxlength="90" 
+                name="vendedor.endereco.logradouro" id="logradouro" type="text">
+        </div>
+        <div class="col-2 form-group required">
+            <label for="numero">Número</label>
+            <input 
+                class="texto form-control" maxlength="6" 
+                name="vendedor.endereco.numero" id="numero" type="text">
+        </div>
+        <div class="col-3 form-group required">
+            <label for="bairro">Bairro</label>
+            <input 
+                class="texto form-control" maxlength="30" 
+                name="vendedor.endereco.bairro" id="bairro" type="text">
+        </div>
+        <div class="col-2 form-group required">
+            <label for="cep">CEP</label>
+            <input 
+                class="texto form-control" maxlength="9" 
+                name="vendedor.endereco.cep" id="cep" type="text">
+        </div>
+        <div class="col-3 form-group required">
+            <label for="tel">Telefone</label>
+            <input 
+                class="numero form-control" maxlength="11" 
+                name="vendedor.telefone" id="tel" type="text">
+        </div>
+        <div class="col-12 form-action">
+            <input type="button" class="btn btn-primary float-right" value="Cadastrar" id="btn_salvar">
+        </div>
+    </div>
+</form>
