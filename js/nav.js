@@ -10,21 +10,20 @@ $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/nav
     cadastraVendedor.click(mostraFormVendedor);
     criaVenda = $("#venda");
     criaVenda.click(mostraFormVenda);
-    formVendedor = $("#formVendedor");
-    botaoCadastraVendedor = $("#btn-cadastrar");
-    botaoCadastraVendedor.click(formVendedor);
 });
 
 function mostraFormVendedor(){
-    $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.vendedor.html", 
-          function(data){
+    $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.vendedor.html", function(data){
         $("#template-placeholder").html(data);
+        formVendedor = $("#formVendedor");
+        botaoCadastraVendedor = $("#btn-cadastrar");
+        botaoCadastraVendedor.click(formVendedor);
     });
 }
 
 function mostraFormVenda(){
     $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.venda.html", function(data){
-        $("#template-placeholder").html(data);
+        $("#template-placeholder").html(data);   
     });
 }
 
