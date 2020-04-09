@@ -41,6 +41,8 @@ function mostraFormVendedor(){
 function mostraFormVenda(){
     $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.venda.html", function(data){
         $("#template-placeholder").html(data);   
+        $('.datepicker').datepicker();
+
     });
 }
 
