@@ -1,3 +1,5 @@
+var jsonData = {};
+
 $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/navbar.template.html", function(data){
     $("#nav-placeholder").html(data);
     var cadastraVendedor = $("#cadastrarVendedor");
@@ -7,7 +9,6 @@ $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/nav
     var formVendedor = $("#formVendedor");
     formVendedor.click(registraFormVendedor(this));
 });
-
 
 function mostraFormVendedor(){
     $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.vendedor.html", 
@@ -25,7 +26,6 @@ function mostraFormVenda(){
 function registraFormVendedor(form){
     $(document).ready(function() {
         $("#btn").click(function(e){
-            var jsonData = {};
             var formData = $(form).serializeArray();
             $.each(formData, function() {
                 if (jsonData[this.name]) {
