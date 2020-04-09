@@ -36,7 +36,7 @@ function mostraFormVendedor(){
             download(jsonData, 'json.txt', 'text/plain');            
         });
     });
-}
+} 
 
 function mostraFormVenda(){
     $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.venda.html", function(data){
