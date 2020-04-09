@@ -4,10 +4,10 @@ export class Vendedor {
         this.rg = rg;
         this.nome = nome;
         this.endereco = {
-            logradouro = logradouro,
-            numero = numero,
-            bairro = bairro,
-            cep = cep,
+            logradouro: logradouro,
+            numero: numero,
+            bairro: bairro,
+            cep: cep,
         };
         this.tel = tel;
     }
