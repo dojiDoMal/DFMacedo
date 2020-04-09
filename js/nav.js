@@ -9,7 +9,7 @@ $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/nav
     cadastraVendedor = $("#cadastrarVendedor");
     cadastraVendedor.click(mostraFormVendedor);
     criaVenda = $("#venda");
-    criaVenda.click(mostraFormVenda);
+    criaVenda.click(mostraFormVenda());
 });
 
 function mostraFormVendedor(){
@@ -17,7 +17,28 @@ function mostraFormVendedor(){
         $("#template-placeholder").html(data);
         formVendedor = $("#formVendedor");
         botaoCadastraVendedor = $("#btn_cadastrar");
-        botaoCadastraVendedor.click(registraFormVendedor);
+        botaoCadastraVendedor.click(function(e){
+            e.preventDefault();
+            $(document).ready(function() {    
+                var formData = $(formVendedor).serializeArray();
+                $.each(formData, function() {
+                    if (jsonData[this.name]) {
+                        if (!jsonData[this.name].push) {
+                        jsonData[this.name] = [jsonData[this.name]];
+                    }
+                    jsonData[this.name].push(this.value || '');
+                    } else {
+                        jsonData[this.name] = this.value || '';
+                    }
+                })
+            });
+            var fs = require('fs');
+            fs.writeFile("test.txt", jsonData, function(err) {
+                if (err) {
+                    console.log(err);
+                }
+            })
+        });
     });
 }
 
@@ -26,26 +47,3 @@ function mostraFormVenda(){
         $("#template-placeholder").html(data);   
     });
 }
-
-function registraFormVendedor(){
-    $(document).ready(function() {
-            var formData = $(formVendedor).serializeArray();
-            $.each(formData, function(e) {
-                e.preventDefault();
-                if (jsonData[this.name]) {
-                    if (!jsonData[this.name].push) {
-                    jsonData[this.name] = [jsonData[this.name]];
-                    }
-                jsonData[this.name].push(this.value || '');
-                } else {
-                    jsonData[this.name] = this.value || '';
-                }
-            })
-    });
-    var fs = require('fs');
-    fs.writeFile("test.txt", jsonData, function(err) {
-    if (err) {
-        console.log(err);
-    }
-})
-} 
