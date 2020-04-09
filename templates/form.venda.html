@@ -4,7 +4,7 @@
     <div class="row">
 
         <!--Essa data deve ser disabled e pega automaticamente do servidor ou algo assim-->
-        <div class="col-3 form-group required datepicker" data-provide="datepicker">
+        <div class="col-3 form-group required" data-provide="datepicker">
             <label for="data">Data</label>
             <input type="text" id="data" name="venda.data" value="" class="data menu form-control" placeholder="Data">
             <span class="fas fa-calendar-alt float-right"></span>
@@ -43,10 +43,10 @@
 
         <!--Mask como dinheiro-->
         <div class="col-4 form-group required">
-            <label for="cmvTotal" disabled="true">CMV Total</label>
+            <label for="cmvTotal">CMV Total</label>
             <input 
                 class="texto form-control" maxlength="10" 
-                name="venda.cmvTotal" id="cmvTotal" type="text">
+                name="venda.cmvTotal" id="cmvTotal" type="text" disabled>
         </div>
 
         <!--Mask como dinheiro-->
@@ -58,10 +58,10 @@
         </div>
 
         <div class="col-2 form-group required">
-            <label for="total" disabled="true">Total</label>
+            <label for="total">Total</label>
             <input 
                 class="texto form-control" maxlength="10" 
-                name="venda.total" id="total" type="text">
+                name="venda.total" id="total" type="text" disabled>
         </div>
 
         <!--Mask como percent-->
@@ -82,16 +82,16 @@
 
         <!--Mask como dinheiro-->
         <div class="col-4 form-group required">
-            <label for="comissaoTotalVendedor" disabled="true">Comissão Total do Vendedor</label>
+            <label for="comissaoTotalVendedor">Comissão Total do Vendedor</label>
             <input 
-                class="texto form-control" maxlength="9" 
+                class="texto form-control" maxlength="9" disabled
                 name="venda.comissaoTotalVendedor" id="comissaoTotalVendedor" type="text">
         </div>
 
         <div class="col-4 form-group required">
-            <label for="comissaoAdmCartao" disabled="true">Comissão Adm. Cartão (R$)</label>
+            <label for="comissaoAdmCartao">Comissão Adm. Cartão (R$)</label>
             <input 
-                class="numero form-control" maxlength="10" 
+                class="numero form-control" maxlength="10" disabled 
                 name="venda.comissaoAdmCartao" id="comissaoAdmCartao" type="text">
         </div>
         <div class="col-12 form-action submit">
