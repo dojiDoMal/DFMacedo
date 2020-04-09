@@ -1,4 +1,4 @@
-import Vendedor from 'vendedor';
+import Vendedor from 'https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/js/vendedor.js';
 
 var vendedores = [];
 var jsonData = {};
