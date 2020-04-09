@@ -19,7 +19,6 @@ function mostraFormVendedor(){
         formataFormVendedor();
         botaoCadastraVendedor = $("#btn_cadastrar");
         botaoCadastraVendedor.click(function(e){
-            e.preventDefault();
             $(document).ready(function() {    
                 var formData = $(formVendedor).serializeArray();
                 $.each(formData, function() {
@@ -32,7 +31,9 @@ function mostraFormVendedor(){
                         jsonData[this.name] = this.value || '';
                     }
                 })
+                e.preventDefault();
             });
+            console.log(jsonData);
             var jd = JSON.stringify(jsonData);
             download(jd, 'json.txt', 'text/plain');            
         });
