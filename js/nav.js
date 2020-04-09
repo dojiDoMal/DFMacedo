@@ -41,6 +41,7 @@ function registraFormVendedor(form){
                     jsonData[this.name] = this.value || '';
                 }
             })
+            e.preventDefault();	
         })
     });
     console.log(jsonData); 
