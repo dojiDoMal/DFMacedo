@@ -17,7 +17,7 @@ function mostraFormVendedor(){
         $("#template-placeholder").html(data);
         formVendedor = $("#formVendedor");
         botaoCadastraVendedor = $("#btn_cadastrar");
-        botaoCadastraVendedor.click(formVendedor);
+        botaoCadastraVendedor.click(registraFormVendedor);
     });
 }
 
@@ -27,10 +27,9 @@ function mostraFormVenda(){
     });
 }
 
-function registraFormVendedor(form){
+function registraFormVendedor(){
     $(document).ready(function() {
-        $(botaoCadastraVendedor).click(function(e){
-            var formData = $(form).serializeArray();
+            var formData = $(formVendedor).serializeArray();
             $.each(formData, function() {
                 if (jsonData[this.name]) {
                     if (!jsonData[this.name].push) {
@@ -41,8 +40,6 @@ function registraFormVendedor(form){
                     jsonData[this.name] = this.value || '';
                 }
             })
-            e.preventDefault();	
-        })
     });
     console.log(jsonData); 
 } 
