@@ -1,13 +1,18 @@
 var jsonData = {};
+var cadastraVendedor = "";
+var criaVenda = "";
+var formVendedor = "";
+var botaoCadastraVendedor = "";
 
 $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/navbar.template.html", function(data){
     $("#nav-placeholder").html(data);
-    var cadastraVendedor = $("#cadastrarVendedor");
+    cadastraVendedor = $("#cadastrarVendedor");
     cadastraVendedor.click(mostraFormVendedor);
-    var criaVenda = $("#venda");
+    criaVenda = $("#venda");
     criaVenda.click(mostraFormVenda);
-    var formVendedor = $("#formVendedor");
-    formVendedor.click(registraFormVendedor(this));
+    formVendedor = $("#formVendedor");
+    botaoCadastraVendedor = $("#btn-cadastrar");
+    botaoCadastraVendedor.click(formVendedor);
 });
 
 function mostraFormVendedor(){
