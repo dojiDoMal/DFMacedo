@@ -21,6 +21,11 @@ nav {
     border-color: steelblue;
 }
 
+.dropdown-menu a:hover{
+    background-color: steelblue;
+    color: white;
+}
+
 #vendedores {
     padding-left: 5%;
 }
