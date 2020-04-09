@@ -1,4 +1,4 @@
-import Vendedor from 'vendedor';
+import Vendedor from './vendedor.js';
 
 var vendedores = [];
 var jsonData = {};
