@@ -30,7 +30,8 @@ function mostraFormVenda(){
 function registraFormVendedor(){
     $(document).ready(function() {
             var formData = $(formVendedor).serializeArray();
-            $.each(formData, function() {
+            $.each(formData, function(e) {
+                e.preventDefault();
                 if (jsonData[this.name]) {
                     if (!jsonData[this.name].push) {
                     jsonData[this.name] = [jsonData[this.name]];
