@@ -1,21 +1,23 @@
 $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/navbar.template.html", function(data){
     $("#nav-placeholder").html(data);
     var cadastraVendedor = $("#cadastrarVendedor");
-    cadastraVendedor.click(formVendedor);
+    cadastraVendedor.click(mostraFormVendedor);
     var criaVenda = $("#venda");
-    criaVenda.click(formVenda);
+    criaVenda.click(mostraFormVenda);
     var formVendedor = $("#formVendedor");
-
+    formVendedor.click(registraFormVendedor(this));
 });
 
-function formVenda(){
-    $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.venda.html", function(data){
+
+function mostraFormVendedor(){
+    $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.vendedor.html", 
+          function(data){
         $("#template-placeholder").html(data);
     });
 }
 
-function formVendedor(){
-    $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.vendedor.html", function(data){
+function mostraFormVenda(){
+    $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.venda.html", function(data){
         $("#template-placeholder").html(data);
     });
 }
