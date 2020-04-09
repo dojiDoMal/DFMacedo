@@ -2,64 +2,100 @@
 <hr style="background-color: steelblue;">
 <form class="ml-5 mr-5" action="">
     <div class="row">
-        <div>
+
+        <!--Essa data deve ser disabled e pega automaticamente do servidor ou algo assim-->
+        <div class="col-3 form-group required">
+            <input type="text" id="data" name="venda.data" value="" class="data menu form-control" placeholder="Data">
+            <span class="datepicker-trigger"><i class="fas fa-calendar-alt float-right"></i></span>
+        </div>
+
+        <!--Esse select deve mostrar os vendedores cadastrados no sistema-->
+        <div class="col-4 form-group required">
             <label for="vendedor">Vendedor</label>
-            <select class="col-3 form-control" id="vendedor" name="vendedor" class="combo select2-hidden-accessible" tabindex="-1" aria-hidden="true" data-select2="true">
+            <select id="vendedor" name="venda.vendedor" class="combo select2-hidden-accessible form-control" tabindex="-1" aria-hidden="true" data-select2="true">
                 <option value="">[Selecione]</option>
                 <option value="FISICA">Física</option>
             </select>
         </div>
-        <div class="col-3 form-group required">
-            <input type="hidden" name="vendedor.codigo" id="codigo" value="1">
-            <label for="cpf">CPF</label>
-            <input 
-                class="texto form-control required" maxlength="20" 
-                name="vendedor.cpf" id="cpf" type="text">
-        </div>
-        <div class="col-2 form-group required">
-            <label for="rg">RG</label>
-            <input 
-                class="texto form-control required" maxlength="18" 
-                name="vendedor.rg" id="rg" type="text">
-        </div>
-        <div class="col-7 form-group required">
-            <label for="nome">Nome</label>
+
+        <div class="col-5 form-group required">
+            <label for="produtoVendido">Produto Vendido</label>
             <input 
                 class="texto form-control required" maxlength="80" 
-                name="vendedor.nome" id="nome" type="text">
+                name="venda.produtoVendido" id="produtoVendido" type="text">
         </div>
-        <div class="col-5 form-group required">
-            <label for="logradouro">Logradouro</label>
-            <input 
-                class="texto form-control" maxlength="90" 
-                name="vendedor.endereco.logradouro" id="logradouro" type="text">
-        </div>
+
+        <!--Mask como dinheiro-->
         <div class="col-2 form-group required">
-            <label for="numero">Número</label>
+            <label for="cmv">CMV</label>
             <input 
-                class="texto form-control" maxlength="6" 
-                name="vendedor.endereco.numero" id="numero" type="text">
+                class="texto form-control required" maxlength="10" 
+                name="venda.cmv" id="cmv" type="text">
         </div>
+
         <div class="col-3 form-group required">
-            <label for="bairro">Bairro</label>
+            <label for="quantidade">Quantidade</label>
             <input 
-                class="texto form-control" maxlength="30" 
-                name="vendedor.endereco.bairro" id="bairro" type="text">
+                class="texto form-control required" maxlength="3" 
+                name="venda.quantidade" id="quantidade" type="number">
         </div>
+
+        <!--Mask como dinheiro-->
+        <div class="col-4 form-group required">
+            <label for="cmvTotal" disabled="disabled">CMV Total</label>
+            <input 
+                class="texto form-control" maxlength="10" 
+                name="venda.cmvTotal" id="cmvTotal" type="text">
+        </div>
+
+        <!--Mask como dinheiro-->
+        <div class="col-3 form-group required">
+            <label for="precoUn">Preço unitário</label>
+            <input 
+                class="texto form-control" maxlength="10" 
+                name="venda.precoUn" id="precoUn" type="text">
+        </div>
+
         <div class="col-2 form-group required">
-            <label for="cep">CEP</label>
+            <label for="total" disabled="disabled">Total</label>
+            <input 
+                class="texto form-control" maxlength="10" 
+                name="venda.total" id="total" type="text">
+        </div>
+
+        <!--Mask como percent-->
+        <div class="col-3 form-group required">
+            <label for="comissaoAdmCartaoPer">Comissão Adm. Cartão (%)</label>
             <input 
                 class="texto form-control" maxlength="9" 
-                name="vendedor.endereco.cep" id="cep" type="text">
+                name="venda.comissaoAdmCartaoPer" id="comissaoAdmCartaoPer" type="text">
         </div>
+
+        <!--Mask como dinheiro-->
         <div class="col-3 form-group required">
-            <label for="tel">Telefone</label>
+            <label for="comissaoUnVendedor">Comissão Un. Vendedor</label>
             <input 
-                class="numero form-control" maxlength="11" 
-                name="vendedor.telefone" id="tel" type="text">
+                class="texto form-control" maxlength="9" 
+                name="venda.comissaoUnVendedor" id="comissaoUnVendedor" type="text">
         </div>
-        <div class="col-12 form-action">
-            <input type="button" class="btn btn-primary float-right" value="Cadastrar" id="btn_salvar">
+
+        <!--Mask como dinheiro-->
+        <div class="col-4 form-group required">
+            <label for="comissaoTotalVendedor" disabled="disabled">Comissão Total do Vendedor</label>
+            <input 
+                class="texto form-control" maxlength="9" 
+                name="venda.comissaoTotalVendedor" id="comissaoTotalVendedor" type="text">
         </div>
-    </div>
+
+        <div class="col-4 form-group required">
+            <label for="comissaoAdmCartao" disabled="disabled">Comissão Adm. Cartão (R$)</label>
+            <input 
+                class="numero form-control" maxlength="10" 
+                name="venda.comissaoAdmCartao" id="comissaoAdmCartao" type="text">
+        </div>
+        <div class="col-12 form-action submit">
+            <button type="submit" class="btn btn-primary float-right" id="btn_realizarVenda">
+                Realizar Venda
+            </button>
+        </div>
 </form>

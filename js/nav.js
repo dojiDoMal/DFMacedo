@@ -16,6 +16,7 @@ function mostraFormVendedor(){
     $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.vendedor.html", function(data){
         $("#template-placeholder").html(data);
         formVendedor = $("#formVendedor");
+        formataFormVendedor();
         botaoCadastraVendedor = $("#btn_cadastrar");
         botaoCadastraVendedor.click(function(e){
             e.preventDefault();
@@ -41,6 +42,14 @@ function mostraFormVenda(){
     $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.venda.html", function(data){
         $("#template-placeholder").html(data);   
     });
+}
+
+function formataFormVendedor(){
+    $(document).ready(function(){
+        $('input[name="vendedor.cpf"]').mask('000.000.000-00',  {reverse: true});
+        $('input[name="vendedor.endereco.cep"]').mask('00000-000');
+        $('input[name="vendedor.telefone"]').mask('(00) 00000-0000');
+    })
 }
 
 function download(content, fileName, contentType) {
