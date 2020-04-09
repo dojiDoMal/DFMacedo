@@ -32,10 +32,10 @@ function mostraFormVendedor(){
                     }
                 })
                 e.preventDefault();
-            });
-            console.log(jsonData);
-//            var jd = JSON.stringify(jsonData);
-//            download(jd, 'json.txt', 'text/plain');            
+                console.log(jsonData); 
+                var jd = JSON.stringify(jsonData);
+                download(jd, 'json.txt', 'text/plain'); 
+            });            
         });
     });
 } 
@@ -54,10 +54,10 @@ function formataFormVendedor(){
     })
 }
 
-// function download(content, fileName, contentType) {
-//     var a = document.createElement("a");
-//     var file = new Blob([content], {type: contentType});
-//     a.href = URL.createObjectURL(file);
-//     a.download = fileName;
-//     a.click();
-// }
+function download(content, fileName, contentType) {
+    var a = document.createElement("a");
+    var file = new Blob([content], {type: contentType});
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+}
