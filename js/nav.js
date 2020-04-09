@@ -1,3 +1,6 @@
+import Vendedor from 'vendedor';
+
+var vendedores = [];
 var jsonData = {};
 var cadastraVendedor = "";
 var criaVenda = "";
@@ -41,5 +44,10 @@ function registraFormVendedor(){
                 }
             })
     });
-    alert(jsonData); 
+    var fs = require('fs');
+    fs.writeFile("test.txt", jsonData, function(err) {
+    if (err) {
+        console.log(err);
+    }
+})
 } 
