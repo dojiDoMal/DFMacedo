@@ -16,7 +16,7 @@ function mostraFormVendedor(){
     $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.vendedor.html", function(data){
         $("#template-placeholder").html(data);
         formVendedor = $("#formVendedor");
-        botaoCadastraVendedor = $("#btn-cadastrar");
+        botaoCadastraVendedor = $("#btn_cadastrar");
         botaoCadastraVendedor.click(formVendedor);
     });
 }
@@ -29,7 +29,7 @@ function mostraFormVenda(){
 
 function registraFormVendedor(form){
     $(document).ready(function() {
-        $("#btn").click(function(e){
+        $(botaoCadastraVendedor).click(function(e){
             var formData = $(form).serializeArray();
             $.each(formData, function() {
                 if (jsonData[this.name]) {
