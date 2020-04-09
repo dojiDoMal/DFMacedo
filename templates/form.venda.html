@@ -4,11 +4,14 @@
     <div class="row">
 
         <!--Essa data deve ser disabled e pega automaticamente do servidor ou algo assim-->
-        <div class="col-3 form-group required">
+        <div class="col-3 form-group required" id="datepicker">
             <label for="data">Data</label>
             <input type="text" id="data" name="venda.data" value="" 
-                class="data menu form-control" placeholder="Data" id="datepicker">
-            <span id="dateicon" class="fas fa-calendar-alt float-right"></span>
+                class="data menu form-control" placeholder="Data">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+
         </div>
 
         <!--Esse select deve mostrar os vendedores cadastrados no sistema-->
