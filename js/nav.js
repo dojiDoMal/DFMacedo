@@ -1,7 +1,3 @@
-import Vendedor from './vendedor.js';
-
-var test = "";
-var vendedores = [];
 var jsonData = {};
 var cadastraVendedor = "";
 var criaVenda = "";
