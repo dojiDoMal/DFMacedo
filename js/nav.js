@@ -1,10 +1,11 @@
 $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/navbar.template.html", function(data){
     $("#nav-placeholder").html(data);
-    var cadastraVendendor = $("#cadastrarVendedor");
-    var criaVenda = $("#venda");
-    var formVendedor = $("#formVendedor")
+    var cadastraVendedor = $("#cadastrarVendedor");
     cadastraVendedor.click(formVendedor);
+    var criaVenda = $("#venda");
     criaVenda.click(formVenda);
+    var formVendedor = $("#formVendedor");
+
 });
 
 function formVenda(){
