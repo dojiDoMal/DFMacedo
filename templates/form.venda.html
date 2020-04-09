@@ -1,7 +1,14 @@
-<h3 class="ml-5">Cadastro de Vendedor</h3>
+<h3 class="ml-5">Nova Venda</h3>
 <hr style="background-color: steelblue;">
-<form class="ml-5 mr-5" id="formVendedor" type="post">
+<form class="ml-5 mr-5" action="">
     <div class="row">
+        <div>
+            <label for="vendedor">Vendedor</label>
+            <select id="vendedor" name="vendedor" class="combo select2-hidden-accessible" tabindex="-1" aria-hidden="true" data-select2="true">
+                <option value="">[Selecione]</option>
+                <option value="FISICA">Física</option>
+            </select>
+        </div>
         <div class="col-3 form-group required">
             <input type="hidden" name="vendedor.codigo" id="codigo" value="1">
             <label for="cpf">CPF</label>
@@ -51,8 +58,8 @@
                 class="numero form-control" maxlength="11" 
                 name="vendedor.telefone" id="tel" type="text">
         </div>
-        <div class="col-12 form-action submit">
-            <input type="submit" class="btn btn-primary float-right" value="Cadastrar" id="btn_cadastrar">
+        <div class="col-12 form-action">
+            <input type="button" class="btn btn-primary float-right" value="Cadastrar" id="btn_salvar">
         </div>
     </div>
 </form>
