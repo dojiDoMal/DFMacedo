@@ -9,7 +9,7 @@ $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/nav
     cadastraVendedor = $("#cadastrarVendedor");
     cadastraVendedor.click(mostraFormVendedor);
     criaVenda = $("#venda");
-    criaVenda.click(mostraFormVenda());
+    criaVenda.click(mostraFormVenda);
 });
 
 function mostraFormVendedor(){
