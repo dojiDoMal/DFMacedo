@@ -33,14 +33,19 @@ function mostraFormVendedor(){
                     }
                 })
             });
-            download(jsonData, 'json.txt', 'text/plain');            
+            var jd = JSON.stringify(jsonData);
+            download(jd, 'json.txt', 'text/plain');            
         });
     });
 } 
 
 function mostraFormVenda(){
     $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.venda.html", function(data){
-        $("#template-placeholder").html(data); 
+        $("#template-placeholder").html(data);             
+        $('#datepicker').datepicker({
+            "format": "mm-dd-yy",
+            "keyboardNavigation": false
+        });         
     });
 }
 
@@ -53,7 +58,6 @@ function formataFormVendedor(){
 }
 
 function download(content, fileName, contentType) {
-    var content = JSON.stringify(content);
     var a = document.createElement("a");
     var file = new Blob([content], {type: contentType});
     a.href = URL.createObjectURL(file);

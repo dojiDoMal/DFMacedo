@@ -21,6 +21,10 @@ nav {
     border-color: steelblue;
 }
 
+#dateicon {
+    size: 70%;
+}
+
 #vendedores {
     padding-left: 5%;
 }
