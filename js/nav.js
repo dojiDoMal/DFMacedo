@@ -41,5 +41,5 @@ function registraFormVendedor(){
                 }
             })
     });
-    console.log(jsonData); 
+    alert(jsonData); 
 } 
