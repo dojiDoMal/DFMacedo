@@ -32,9 +32,17 @@ function mostraFormVendedor(){
                         jsonData[this.name] = this.value || '';
                     }
                 })
+
                 console.log(jsonData); 
                 var jd = JSON.stringify(jsonData);
-                download(jd, 'json.txt', 'text/plain'); 
+
+                $.ajax({
+                    url: "vendedor.php",
+                    method: "post",
+                    data: { data: jsonData }
+                });
+
+                //download(jd, 'json.txt', 'text/plain'); 
             });            
         });
     });
