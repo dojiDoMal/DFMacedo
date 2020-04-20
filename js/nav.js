@@ -34,13 +34,13 @@ function mostraFormVendedor(){
                 })
 
                 console.log(jsonData); 
-                var jd = JSON.stringify(jsonData);
+                // var jd = JSON.stringify(jsonData);
 
-                $.ajax({
-                    url: "vendedor.php",
-                    method: "post",
-                    data: { data: jsonData }
-                });
+                // $.ajax({
+                //     url: "vendedor.php",
+                //     method: "post",
+                //     data: { data: jd }
+                // });
 
                 //download(jd, 'json.txt', 'text/plain'); 
             });            
