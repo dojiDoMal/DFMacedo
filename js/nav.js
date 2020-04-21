@@ -1,4 +1,4 @@
-var jsonData = [];
+var jsonData = [{}];
 var cadastraVendedor = "";
 var criaVenda = "";
 var formVendedor = "",
