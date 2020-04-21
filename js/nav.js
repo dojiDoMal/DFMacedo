@@ -33,19 +33,8 @@ function mostraFormVendedor(){
                         jsonData[this.name] = this.value || '';
                     }
                 })
-
-                console.log(jsonData);
-                
+                //console.log(jsonData);
                 localStorage.setItem('data.vendedor', JSON.stringify(jsonData));
-                var jd = JSON.stringify(jsonData);
-
-                // $.ajax({
-                //     url: "vendedor.php",
-                //     method: "post",
-                //     data: { data: jd }
-                // });
-
-                //download(jd, 'json.txt', 'text/plain'); 
             });            
         });
     });
@@ -62,9 +51,9 @@ function mostraFormVenda(){
         dropdown.append('<option selected="true" disabled>Escolha o vendedor</option>');
         dropdown.prop('selectedIndex', 0);
 
-        $.each(objVendedor.vendedorNome, function () {
-            dropdown.append($('<option></option>').attr('value', objVendedor.vendedorNome).text(objVendedor.vendedorNome));
-        })
+        for(var i = 0; i < objVendedor.vendedorNome.length; i++){
+            dropdown.append($('<option></option>').attr('value', objVendedor.vendedorNome[i]).text(objVendedor.vendedorNome[i]));
+        }
     });
 }
 
@@ -75,11 +64,3 @@ function formataFormVendedor(){
         $('input[name="vendedorTelefone"]').mask('(00) 00000-0000');
     })
 }
-
-// function download(content, fileName, contentType) {
-//     var a = document.createElement("a");
-//     var file = new Blob([content], {type: contentType});
-//     a.href = URL.createObjectURL(file);
-//     a.download = fileName;
-//     a.click();
-// }
