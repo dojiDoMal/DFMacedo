@@ -55,6 +55,8 @@ function mostraFormVenda(){
         $("#template-placeholder").html(data);  
         var dadosVendedores = localStorage.getItem("data.vendedor");
         var obj = JSON.parse(dadosVendedores);
+        console.log(obj.vendedor.nome);
+        console.log(obj);
     });
 }
 
