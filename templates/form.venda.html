@@ -1,6 +1,6 @@
 <h3 class="ml-5">Nova Venda</h3>
 <hr style="background-color: steelblue;">
-<form class="ml-5 mr-5" action="">
+<form class="ml-5 mr-5" id="formVenda" type="post">
     <div class="row">
 
         <!--Essa data deve ser disabled e pega automaticamente do servidor ou algo assim-->
@@ -9,83 +9,65 @@
             <input type="text" id="data" name="vendaData"
                 class="data menu form-control" placeholder="Data">
         </div>
-
-        <!--Esse select deve mostrar os vendedores cadastrados no sistema-->
         <div class="col-4 form-group required"> 
             <label for="vendedor">Vendedor</label>
             <select id="vendedor" name="vendaVendedor" class="combo select2-hidden-accessible form-control" tabindex="-1" aria-hidden="true" data-select2="true">
             </select>
         </div>
-
         <div class="col-5 form-group required">
             <label for="produtoVendido">Produto Vendido</label>
             <input 
                 class="texto form-control required" maxlength="80" 
                 name="vendaProdutoVendido" id="produtoVendido" type="text">
         </div>
-
-        <!--Mask como dinheiro-->
         <div class="col-2 form-group required">
             <label for="cmv">CMV</label>
             <input 
                 class="texto form-control required" maxlength="10" 
                 name="vendaCmv" id="cmv" type="text">
         </div>
-
         <div class="col-3 form-group required">
             <label for="quantidade">Quantidade</label>
             <input 
                 class="texto form-control required" maxlength="3" 
                 name="vendaQuantidade" id="quantidade" type="number">
         </div>
-
-        <!--Mask como dinheiro-->
         <div class="col-4 form-group required">
             <label for="cmvTotal">CMV Total</label>
             <input 
                 class="texto form-control" maxlength="10" 
                 name="vendaCmvTotal" id="cmvTotal" type="text" disabled>
         </div>
-
-        <!--Mask como dinheiro-->
         <div class="col-3 form-group required">
             <label for="precoUn">Preço unitário</label>
             <input 
                 class="texto form-control" maxlength="10" 
                 name="vendaPrecoUn" id="precoUn" type="text">
         </div>
-
         <div class="col-2 form-group required">
             <label for="total">Total</label>
             <input 
                 class="texto form-control" maxlength="10" 
                 name="vendaTotal" id="total" type="text" disabled>
         </div>
-
-        <!--Mask como percent-->
         <div class="col-3 form-group required">
-            <label for="comissaoAdmCartaoPer">Comissão Adm. Cartão (%)</label>
+            <label for="comissaoAdmCartaoPer">Comissão Adm. Cartão</label>
             <input 
                 class="texto form-control" maxlength="9" 
                 name="vendaComissaoAdmCartaoPer" id="comissaoAdmCartaoPer" type="text">
         </div>
-
-        <!--Mask como dinheiro-->
         <div class="col-3 form-group required">
             <label for="comissaoUnVendedor">Comissão Un. Vendedor</label>
             <input 
                 class="texto form-control" maxlength="9" 
                 name="vendaComissaoUnVendedor" id="comissaoUnVendedor" type="text">
         </div>
-
-        <!--Mask como dinheiro-->
         <div class="col-4 form-group required">
             <label for="comissaoTotalVendedor">Comissão Total do Vendedor</label>
             <input 
                 class="texto form-control" maxlength="9" disabled
                 name="vendaComissaoTotalVendedor" id="comissaoTotalVendedor" type="text">
         </div>
-
         <div class="col-4 form-group required">
             <label for="comissaoAdmCartao">Comissão Adm. Cartão (R$)</label>
             <input 
@@ -93,7 +75,7 @@
                 name="vendaComissaoAdmCartao" id="comissaoAdmCartao" type="text">
         </div>
         <div class="col-12 form-action submit">
-            <input value="Realizar Venda" type="submit" class="btn btn-primary float-right" id="btn_realizarVenda">
+            <input value="Realizar Venda" type="submit" class="btn btn-primary float-right" id="btnRealizarVenda">
             </input>
         </div>
 </form>
