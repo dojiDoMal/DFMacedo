@@ -56,6 +56,15 @@ function mostraFormVenda(){
         $("#template-placeholder").html(data);  
         var dadosVendedores = localStorage.getItem("data.vendedor");
         objVendedor = JSON.parse(dadosVendedores);
+
+        var dropdown = $('#vendedor');
+        dropdown.empty();
+        dropdown.append('<option selected="true" disabled>Escolha o vendedor</option>');
+        dropdown.prop('selectedIndex', 0);
+
+        $.each(objVendedor, function () {
+            dropdown.append($('<option></option>').attr('value', objVendedor.vendedorNome).text(objVendedor.vendedorNome));
+        })
     });
 }
 
