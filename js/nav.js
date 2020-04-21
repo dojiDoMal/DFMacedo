@@ -33,8 +33,10 @@ function mostraFormVendedor(){
                     }
                 })
 
-                console.log(jsonData); 
-                // var jd = JSON.stringify(jsonData);
+                console.log(jsonData);
+                
+                localStorage.setItem('data.vendedor', JSON.stringify(jsonData));
+                var jd = JSON.stringify(jsonData);
 
                 // $.ajax({
                 //     url: "vendedor.php",
