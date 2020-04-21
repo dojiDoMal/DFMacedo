@@ -61,9 +61,9 @@ function mostraFormVenda(){
 
 function formataFormVendedor(){
     $(document).ready(function(){
-        $('input[name="vendedor.cpf"]').mask('000.000.000-00',  {reverse: true});
-        $('input[name="vendedor.endereco.cep"]').mask('00000-000');
-        $('input[name="vendedor.telefone"]').mask('(00) 00000-0000');
+        $('input[name="vendedor-cpf"]').mask('000.000.000-00',  {reverse: true});
+        $('input[name="vendedor-end-cep"]').mask('00000-000');
+        $('input[name="vendedor-telefone"]').mask('(00) 00000-0000');
     })
 }
 
