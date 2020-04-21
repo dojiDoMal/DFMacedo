@@ -1,4 +1,4 @@
-var jsonData = [{}];
+var jsonData = {}; 
 var cadastraVendedor = "";
 var criaVenda = "";
 var formVendedor = "",
@@ -23,7 +23,7 @@ function mostraFormVendedor(){
         botaoCadastraVendedor = $("#btn_cadastrar");
         botaoCadastraVendedor.click(function(e){
             e.preventDefault();
-            saveData(formVendedor, 'data.vendedor')
+            saveData(formVendedor, 'data.vendedor', 8)
         });
         // botaoCadastraVendedor.click(function(e){
         //     e.preventDefault();
@@ -54,15 +54,19 @@ function mostraFormVenda(){
         botaoCadastraVenda = $("#btnRealizarVenda");
         botaoCadastraVenda.click(function(e){
             e.preventDefault();
-            saveData(formVenda, 'data.venda');
+            saveData(formVenda, 'data.venda', 12);
         });
         objVendedor = JSON.parse(localStorage.getItem("data.vendedor"));
         var dropdown = $('#vendedor');
         dropdown.empty();
         dropdown.append('<option selected="true" disabled>Escolha o vendedor</option>');
         dropdown.prop('selectedIndex', 0);
-        for(var i = 0; i < objVendedor.vendedorNome.length; i++){
-            dropdown.append($('<option></option>').attr('value', objVendedor.vendedorNome[i]).text(objVendedor.vendedorNome[i]));
+        if(Array.isArray(objVendedor.vendedorNome)){
+            for(var i = 0; i < objVendedor.vendedorNome.length; i++){
+                dropdown.append($('<option></option>').attr('value', objVendedor.vendedorNome[i]).text(objVendedor.vendedorNome[i]));
+            }
+        } else {
+            dropdown.append($('<option></option>').attr('value', objVendedor.vendedorNome).text(objVendedor.vendedorNome));
         }
     });
 }
@@ -89,7 +93,7 @@ function formataFormVenda(){
     })
 }
 
-function saveData(form, formName){
+function saveData(form, formName, matchSize){
     $(document).ready(function() {    
         var formData = $(form).serializeArray();
         $.each(formData, function() {
@@ -105,6 +109,11 @@ function saveData(form, formName){
         //console.log(jsonData);
         var old = localStorage.getItem(formName);
         if(old === null) old = "";
-        localStorage.setItem(formName, old + JSON.stringify(jsonData));
+        var newData = Object.assign(jsonData, old);
+        for(var i = 0; Object.keys(newData).length > matchSize; i++){
+            delete newData[i];
+        }
+        //console.log(Object.keys(newData).length);
+        localStorage.setItem(formName, JSON.stringify(newData));
     });            
 }
