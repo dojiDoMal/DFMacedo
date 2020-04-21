@@ -21,7 +21,7 @@ function mostraFormVendedor(){
         formVendedor = $("#formVendedor");
         formataFormVendedor();
         botaoCadastraVendedor = $("#btn_cadastrar");
-        botaoCadastraVendedor.click(saveData(e, formVendedor, 'data.vendedor'));
+        botaoCadastraVendedor.click(saveData(event, formVendedor, 'data.vendedor'));
         // botaoCadastraVendedor.click(function(e){
         //     e.preventDefault();
         //     $(document).ready(function() {    
@@ -49,7 +49,7 @@ function mostraFormVenda(){
         formVenda = $("#formVenda");
         formataFormVenda();
         botaoCadastraVenda = $("#btnRealizarVenda");
-        botaoCadastraVenda.click(saveData(e, formVenda, 'data.venda'));
+        botaoCadastraVenda.click(saveData(event, formVenda, 'data.venda'));
         objVendedor = JSON.parse(localStorage.getItem("data.vendedor"));
         var dropdown = $('#vendedor');
         dropdown.empty();
