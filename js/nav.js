@@ -3,7 +3,7 @@ var cadastraVendedor = "";
 var criaVenda = "";
 var formVendedor = "";
 var botaoCadastraVendedor = "";
-var objVendedor = "";
+var objVendedor = {};
 
 $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/navbar.template.html", function(data){
     $("#nav-placeholder").html(data);
