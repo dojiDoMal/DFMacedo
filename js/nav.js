@@ -53,6 +53,8 @@ function mostraFormVendedor(){
 function mostraFormVenda(){
     $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.venda.html", function(data){
         $("#template-placeholder").html(data);  
+        var dadosVendedores = localStorage.getItem("data.vendedor");
+        var obj = JSON.parse(dadosVendedores);
     });
 }
 
@@ -64,10 +66,10 @@ function formataFormVendedor(){
     })
 }
 
-function download(content, fileName, contentType) {
-    var a = document.createElement("a");
-    var file = new Blob([content], {type: contentType});
-    a.href = URL.createObjectURL(file);
-    a.download = fileName;
-    a.click();
-}
+// function download(content, fileName, contentType) {
+//     var a = document.createElement("a");
+//     var file = new Blob([content], {type: contentType});
+//     a.href = URL.createObjectURL(file);
+//     a.download = fileName;
+//     a.click();
+// }
