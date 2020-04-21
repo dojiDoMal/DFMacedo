@@ -3,6 +3,7 @@ var cadastraVendedor = "";
 var criaVenda = "";
 var formVendedor = "";
 var botaoCadastraVendedor = "";
+var objVendedor = "";
 
 $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/navbar.template.html", function(data){
     $("#nav-placeholder").html(data);
@@ -54,9 +55,7 @@ function mostraFormVenda(){
     $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.venda.html", function(data){
         $("#template-placeholder").html(data);  
         var dadosVendedores = localStorage.getItem("data.vendedor");
-        var obj = JSON.parse(dadosVendedores);
-        console.log(obj.vendedor.nome);
-        console.log(obj);
+        objVendedor = JSON.parse(dadosVendedores);
     });
 }
 
