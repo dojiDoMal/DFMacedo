@@ -62,7 +62,7 @@ function mostraFormVenda(){
         dropdown.append('<option selected="true" disabled>Escolha o vendedor</option>');
         dropdown.prop('selectedIndex', 0);
 
-        $.each(objVendedor, function () {
+        $.each(objVendedor.vendedorNome, function () {
             dropdown.append($('<option></option>').attr('value', objVendedor.vendedorNome).text(objVendedor.vendedorNome));
         })
     });
