@@ -21,7 +21,7 @@ function mostraFormVendedor(){
         formVendedor = $("#formVendedor");
         formataFormVendedor();
         botaoCadastraVendedor = $("#btn_cadastrar");
-        botaoCadastraVendedor.click(saveData(event, formVendedor, 'data.vendedor'));
+        botaoCadastraVendedor.click(saveData(formVendedor, 'data.vendedor'));
         // botaoCadastraVendedor.click(function(e){
         //     e.preventDefault();
         //     $(document).ready(function() {    
@@ -49,7 +49,7 @@ function mostraFormVenda(){
         formVenda = $("#formVenda");
         formataFormVenda();
         botaoCadastraVenda = $("#btnRealizarVenda");
-        botaoCadastraVenda.click(saveData(event, formVenda, 'data.venda'));
+        botaoCadastraVenda.click(saveData(formVenda, 'data.venda'));
         objVendedor = JSON.parse(localStorage.getItem("data.vendedor"));
         var dropdown = $('#vendedor');
         dropdown.empty();
@@ -83,8 +83,8 @@ function formataFormVenda(){
     })
 }
 
-function saveData(e, form, formName){
-    e.preventDefault();
+function saveData(form, formName){
+    (e) => e.preventDefault();
     $(document).ready(function() {    
         var formData = $(form).serializeArray();
         $.each(formData, function() {
