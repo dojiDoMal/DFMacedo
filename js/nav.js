@@ -23,12 +23,12 @@ $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/nav
 function mostraTableVendedor(){
     $.get("../DFMacedo/templates/table.vendedor.html", function(data){
         $("#template-placeholder").html(data);
-        tbVendedores = $("#tbodyVendedores");
+        preencheTableVendedores();
     });
 }
 
 function mostraFormVendedor(){
-    $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.vendedor.html", function(data){
+    $.get("../DFMacedo/templates/form.vendedor.html", function(data){
         $("#template-placeholder").html(data);
         formVendedor = $("#formVendedor");
         formataFormVendedor();
@@ -41,7 +41,7 @@ function mostraFormVendedor(){
 } 
 
 function mostraFormVenda(){
-    $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.venda.html", function(data){
+    $.get("../DFMacedo/templates/form.venda.html", function(data){
         $("#template-placeholder").html(data);  
         formVenda = $("#formVenda");
         formataFormVenda();
@@ -52,6 +52,31 @@ function mostraFormVenda(){
         });
         preencheSelectVendedores();
     });
+}
+
+function preencheTableVendedores(){
+    objVendedor = JSON.parse(localStorage.getItem("data.vendedor"));
+    tbVendedores = $("#tbodyVendedores");
+    tbVendedores.empty();
+    //tbVendedores.append('<option selected="true" disabled>Escolha o vendedor</option>');
+    //dropdown.prop('selectedIndex', 0);
+    if(Array.isArray(objVendedor.vendedorNome)){
+        for(var i = 0; i < objVendedor.vendedorNome.length; i++){
+            tbVendedores.append($('<tr></tr>')
+                .append($('<td></td>').text(objVendedor.vendedorNome[i]),
+                        $('<td></td>').text(objVendedor.vendedorCpf[i]),
+                        $('<td></td>').text(objVendedor.vendedorTelefone[i]),
+                )
+            )
+        }
+    } else {
+        tbVendedores.append($('<tr></tr>')
+            .append($('<td></td>').text(objVendedor.vendedorNome),
+                    $('<td></td>').text(objVendedor.vendedorCpf),
+                    $('<td></td>').text(objVendedor.vendedorTelefone),
+            )
+        )
+    }
 }
 
 function preencheSelectVendedores(){
