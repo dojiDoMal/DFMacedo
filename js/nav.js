@@ -63,17 +63,17 @@ function preencheTableVendedores(){
     if(Array.isArray(objVendedor.vendedorNome)){
         for(var i = 0; i < objVendedor.vendedorNome.length; i++){
             tbVendedores.append($('<tr></tr>')
-                .append($('<td></td>').text(objVendedor.vendedorNome[i]).attr('class', 'col-6'),
-                        $('<td></td>').text(objVendedor.vendedorCpf[i]).attr('class', 'col-3'),
-                        $('<td></td>').text(objVendedor.vendedorTelefone[i]).attr('class', 'col-3'),
+                .append($('<td></td>').text(objVendedor.vendedorNome[i]).attr('class', 'col-4'),
+                        $('<td></td>').text(objVendedor.vendedorCpf[i]).attr('class', 'col-4'),
+                        $('<td></td>').text(objVendedor.vendedorTelefone[i]).attr('class', 'col-4'),
                 )
             )
         }
     } else {
         tbVendedores.append($('<tr></tr>')
-            .append($('<td></td>').text(objVendedor.vendedorNome).attr('class', 'col-6'),
-                    $('<td></td>').text(objVendedor.vendedorCpf).attr('class', 'col-3'),
-                    $('<td></td>').text(objVendedor.vendedorTelefone).attr('class', 'col-3'),
+            .append($('<td></td>').text(objVendedor.vendedorNome).attr('class', 'col-4'),
+                    $('<td></td>').text(objVendedor.vendedorCpf).attr('class', 'col-4'),
+                    $('<td></td>').text(objVendedor.vendedorTelefone).attr('class', 'col-4'),
             )
         )
     }

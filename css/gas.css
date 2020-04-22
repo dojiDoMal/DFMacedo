@@ -3,6 +3,11 @@ nav {
     color: white;
 }
 
+td {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .navbar {
     padding: 0px 16px;
 }
