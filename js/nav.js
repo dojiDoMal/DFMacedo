@@ -21,7 +21,7 @@ $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/nav
 });
 
 function mostraTableVendedor(){
-    $.get("../templates/table.vendedor.html", function(data){
+    $.get("../DFMacedo/templates/table.vendedor.html", function(data){
         $("#template-placeholder").html(data);
         tbVendedores = $("#tbodyVendedores");
     });
