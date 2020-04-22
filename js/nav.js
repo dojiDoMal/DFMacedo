@@ -1,6 +1,9 @@
 var jsonData = {}; 
-var cadastraVendedor = "";
-var criaVenda = "";
+var cadastraVendedor = "",
+    criaVenda = "",
+    excluiVendedor = "";
+var tbVendedores = "",
+    dropdown = "";
 var formVendedor = "",
     formVenda = "";
 var botaoCadastraVendedor = "",
@@ -13,7 +16,16 @@ $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/nav
     cadastraVendedor.click(mostraFormVendedor);
     criaVenda = $("#venda");
     criaVenda.click(mostraFormVenda);
+    excluiVendedor = $("#excluirVendedor");
+    excluiVendedor.click(mostraTableVendedor);
 });
+
+function mostraTableVendedor(){
+    $.get("../templates/table.vendedor.html", function(data){
+        $("#template-placeholder").html(data);
+        tbVendedores = $("#tbodyVendedores");
+    });
+}
 
 function mostraFormVendedor(){
     $.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/form.vendedor.html", function(data){
@@ -25,24 +37,6 @@ function mostraFormVendedor(){
             e.preventDefault();
             saveData(formVendedor, 'data.vendedor', 8)
         });
-        // botaoCadastraVendedor.click(function(e){
-        //     e.preventDefault();
-        //     $(document).ready(function() {    
-        //         var formData = $(formVendedor).serializeArray();
-        //         $.each(formData, function() {
-        //             if (jsonData[this.name]) {
-        //                 if (!jsonData[this.name].push) {
-        //                 jsonData[this.name] = [jsonData[this.name]];
-        //             }
-        //             jsonData[this.name].push(this.value || '');
-        //             } else {
-        //                 jsonData[this.name] = this.value || '';
-        //             }
-        //         })
-        //         //console.log(jsonData);
-        //         localStorage.setItem('data.vendedor', JSON.stringify(jsonData));
-        //     });            
-        // });
     });
 } 
 
@@ -56,19 +50,23 @@ function mostraFormVenda(){
             e.preventDefault();
             saveData(formVenda, 'data.venda', 12);
         });
-        objVendedor = JSON.parse(localStorage.getItem("data.vendedor"));
-        var dropdown = $('#vendedor');
-        dropdown.empty();
-        dropdown.append('<option selected="true" disabled>Escolha o vendedor</option>');
-        dropdown.prop('selectedIndex', 0);
-        if(Array.isArray(objVendedor.vendedorNome)){
-            for(var i = 0; i < objVendedor.vendedorNome.length; i++){
-                dropdown.append($('<option></option>').attr('value', objVendedor.vendedorNome[i]).text(objVendedor.vendedorNome[i]));
-            }
-        } else {
-            dropdown.append($('<option></option>').attr('value', objVendedor.vendedorNome).text(objVendedor.vendedorNome));
-        }
+        preencheSelectVendedores();
     });
+}
+
+function preencheSelectVendedores(){
+    objVendedor = JSON.parse(localStorage.getItem("data.vendedor"));
+    dropdown = $('#vendedor');
+    dropdown.empty();
+    dropdown.append('<option selected="true" disabled>Escolha o vendedor</option>');
+    dropdown.prop('selectedIndex', 0);
+    if(Array.isArray(objVendedor.vendedorNome)){
+        for(var i = 0; i < objVendedor.vendedorNome.length; i++){
+            dropdown.append($('<option></option>').attr('value', objVendedor.vendedorNome[i]).text(objVendedor.vendedorNome[i]));
+        }
+    } else {
+        dropdown.append($('<option></option>').attr('value', objVendedor.vendedorNome).text(objVendedor.vendedorNome));
+    }
 }
 
 function formataFormVendedor(){
