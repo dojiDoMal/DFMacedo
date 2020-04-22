@@ -63,17 +63,17 @@ function preencheTableVendedores(){
     if(Array.isArray(objVendedor.vendedorNome)){
         for(var i = 0; i < objVendedor.vendedorNome.length; i++){
             tbVendedores.append($('<tr></tr>')
-                .append($('<td></td>').text(objVendedor.vendedorNome[i]),
-                        $('<td></td>').text(objVendedor.vendedorCpf[i]),
-                        $('<td></td>').text(objVendedor.vendedorTelefone[i]),
+                .append($('<td></td>').text(objVendedor.vendedorNome[i]).attr('class', 'col-6'),
+                        $('<td></td>').text(objVendedor.vendedorCpf[i]).attr('class', 'col-3'),
+                        $('<td></td>').text(objVendedor.vendedorTelefone[i]).attr('class', 'col-3'),
                 )
             )
         }
     } else {
         tbVendedores.append($('<tr></tr>')
-            .append($('<td></td>').text(objVendedor.vendedorNome),
-                    $('<td></td>').text(objVendedor.vendedorCpf),
-                    $('<td></td>').text(objVendedor.vendedorTelefone),
+            .append($('<td></td>').text(objVendedor.vendedorNome).attr('class', 'col-6'),
+                    $('<td></td>').text(objVendedor.vendedorCpf).attr('class', 'col-3'),
+                    $('<td></td>').text(objVendedor.vendedorTelefone).attr('class', 'col-3'),
             )
         )
     }
@@ -131,6 +131,7 @@ function saveData(form, formName, matchSize){
         })
         var old = localStorage.getItem(formName);
         console.log(old);
+        console.log(jsonData);
         if(old === null) old = "";
         var newData = Object.assign(jsonData, old);
         for(var i = 0; Object.keys(newData).length > matchSize; i++){
