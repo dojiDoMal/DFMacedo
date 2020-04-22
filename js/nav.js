@@ -132,7 +132,7 @@ function saveData(form, formName, matchSize){
         if(old === null) old = "";
         var newData = Object.assign(jsonData, old);
         console.log(jsonData);
-        if(Array.isArray(objVendedor.vendedorNome)){
+        if(!Array.isArray(objVendedor.vendedorNome)){
             for(var i = 0; Object.keys(newData).length > matchSize; i++){
                 delete newData[i];
             }
