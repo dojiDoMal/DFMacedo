@@ -29,6 +29,7 @@ function mostraTableVendedor(){
 
 function mostraFormVendedor(){
     $.get("../DFMacedo/templates/form.vendedor.html", function(data){
+        loadData('data.vendedor');
         $("#template-placeholder").html(data);
         formVendedor = $("#formVendedor");
         formataFormVendedor();
@@ -42,6 +43,7 @@ function mostraFormVendedor(){
 
 function mostraFormVenda(){
     $.get("../DFMacedo/templates/form.venda.html", function(data){
+        loadData('data.venda');
         $("#template-placeholder").html(data);  
         formVenda = $("#formVenda");
         formataFormVenda();
@@ -58,8 +60,6 @@ function preencheTableVendedores(){
     objVendedor = JSON.parse(localStorage.getItem("data.vendedor"));
     tbVendedores = $("#tbodyVendedores");
     tbVendedores.empty();
-    //tbVendedores.append('<option selected="true" disabled>Escolha o vendedor</option>');
-    //dropdown.prop('selectedIndex', 0);
     if(Array.isArray(objVendedor.vendedorNome)){
         for(var i = 0; i < objVendedor.vendedorNome.length; i++){
             tbVendedores.append($('<tr></tr>')
@@ -129,14 +129,18 @@ function saveData(form, formName, matchSize){
                 jsonData[this.name] = this.value || '';
             }
         })
-        //console.log(jsonData);
         var old = localStorage.getItem(formName);
         if(old === null) old = "";
         var newData = Object.assign(jsonData, old);
         for(var i = 0; Object.keys(newData).length > matchSize; i++){
             delete newData[i];
         }
-        //console.log(Object.keys(newData).length);
         localStorage.setItem(formName, JSON.stringify(newData));
+    });            
+}
+
+function loadData(data){
+    $(document).ready(function() {    
+        jsonData = localStorage.getItem(data);
     });            
 }
