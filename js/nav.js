@@ -10,7 +10,7 @@ var botaoCadastraVendedor = "",
     botaoCadastraVenda = "";
 var objVendedor = {};
 
-$.get("https://raw.githubusercontent.com/dojiDoMal/DFMacedo/master/templates/navbar.template.html", function(data){
+$.get("../DFMacedo/templates/navbar.template.html", function(data){
     $("#nav-placeholder").html(data);
     cadastraVendedor = $("#cadastrarVendedor");
     cadastraVendedor.click(mostraFormVendedor);
@@ -29,7 +29,6 @@ function mostraTableVendedor(){
 
 function mostraFormVendedor(){
     $.get("../DFMacedo/templates/form.vendedor.html", function(data){
-        //loadData('data.vendedor');
         $("#template-placeholder").html(data);
         formVendedor = $("#formVendedor");
         formataFormVendedor();
@@ -43,7 +42,6 @@ function mostraFormVendedor(){
 
 function mostraFormVenda(){
     $.get("../DFMacedo/templates/form.venda.html", function(data){
-        //loadData('data.venda');
         $("#template-placeholder").html(data);  
         formVenda = $("#formVenda");
         formataFormVenda();
@@ -119,7 +117,7 @@ function formataFormVenda(){
 function saveData(form, formName, matchSize){
     $(document).ready(function() {    
         var formData = $(form).serializeArray();
-        $.each(formData.cleanVal(), function() {
+        $.each(formData, function() {
             if (jsonData[this.name]) {
                 if (!jsonData[this.name].push) {
                     jsonData[this.name] = [jsonData[this.name]];
