@@ -119,7 +119,7 @@ function formataFormVenda(){
 function saveData(form, formName, matchSize){
     $(document).ready(function() {    
         var formData = $(form).serializeArray();
-        $.each(formData, function() {
+        $.each(formData.cleanVal(), function() {
             if (jsonData[this.name]) {
                 if (!jsonData[this.name].push) {
                     jsonData[this.name] = [jsonData[this.name]];
@@ -131,11 +131,13 @@ function saveData(form, formName, matchSize){
         })
         var old = localStorage.getItem(formName);
         console.log(old);
-        console.log(jsonData);
         if(old === null) old = "";
         var newData = Object.assign(jsonData, old);
-        for(var i = 0; Object.keys(newData).length > matchSize; i++){
-            delete newData[i];
+        console.log(jsonData);
+        if(Array.isArray(objVendedor.vendedorNome)){
+            for(var i = 0; Object.keys(newData).length > matchSize; i++){
+                delete newData[i];
+            }
         }
         localStorage.setItem(formName, JSON.stringify(newData));
     });            
