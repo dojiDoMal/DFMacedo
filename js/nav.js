@@ -29,7 +29,7 @@ function mostraTableVendedor(){
 
 function mostraFormVendedor(){
     $.get("../DFMacedo/templates/form.vendedor.html", function(data){
-        loadData('data.vendedor');
+        //loadData('data.vendedor');
         $("#template-placeholder").html(data);
         formVendedor = $("#formVendedor");
         formataFormVendedor();
@@ -43,7 +43,7 @@ function mostraFormVendedor(){
 
 function mostraFormVenda(){
     $.get("../DFMacedo/templates/form.venda.html", function(data){
-        loadData('data.venda');
+        //loadData('data.venda');
         $("#template-placeholder").html(data);  
         formVenda = $("#formVenda");
         formataFormVenda();
@@ -122,14 +122,15 @@ function saveData(form, formName, matchSize){
         $.each(formData, function() {
             if (jsonData[this.name]) {
                 if (!jsonData[this.name].push) {
-                jsonData[this.name] = [jsonData[this.name]];
-            }
-            jsonData[this.name].push(this.value || '');
+                    jsonData[this.name] = [jsonData[this.name]];
+                }
+                jsonData[this.name].push(this.value || '');
             } else {
                 jsonData[this.name] = this.value || '';
             }
         })
         var old = localStorage.getItem(formName);
+        console.log(old);
         if(old === null) old = "";
         var newData = Object.assign(jsonData, old);
         for(var i = 0; Object.keys(newData).length > matchSize; i++){
@@ -142,5 +143,6 @@ function saveData(form, formName, matchSize){
 function loadData(data){
     $(document).ready(function() {    
         jsonData = localStorage.getItem(data);
+        console.log(jsonData);
     });            
 }
